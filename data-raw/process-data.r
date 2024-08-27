@@ -10,7 +10,7 @@ ice = fread(file = 'data-raw/raw-data.csv')
 ## Select variables to work with
 vars <- c(
   ## Sociodemograficas
-  "id_personal", "fecha_de_evaluaci_n", "edad",
+  "id_personal", "fecha_de_evaluaci_n", "edad", "sexo",
   ## Hemodinámicos
   "bp_systolic", "bp_diastolic", "fc", "fc_max", "bp_systolic_2", "bp_diastolic_2",
   "fc_2", "bp_systolic_3", "bp_diastolic_3", "fc_3", "bp_systolic_4",
@@ -42,23 +42,55 @@ vars <- c(
   ## HRV - post inmersión tardio
   "post_fc_max_4", "post_mean_rr_4", "post_rmssd_4", "post_pns_4",
   "post_mean_hr_4", "post_stress_index_4", "post_sns_4", "post_sdnn_4",
-  "post_vlf_4", "post_lf_3", "post_hf_4", "post_hf_lf_4"
+  "post_vlf_4", "post_lf_3", "post_hf_4", "post_hf_lf_4",
+  ## Temperatura timpánica
+  "t_basal_izquierdo", "t_basal_derecho", "t_pre_izquierdo", "t_pre_derecho",
+  "t_post_izquierdo", "t_post_derecho", "t_post_izquierdo_2", "t_post_derecho_2"
 )
 
 ice <- ice[, .SD, .SDcols = vars]
 
 # Setting Factors(will create new variable for factors)
-ice$spaq_seasonal_pattern <- factor(ice$spaq_seasonal_pattern,levels=c("0","1","2","3"))
-ice$spaq_ssi <- factor(ice$spaq_ssi,levels=c("0","1","2","3"))
-ice$spaq_severity <- factor(ice$spaq_severity,levels=c("0","1","2","3","4","5"))
-ice$bdi_cat <- factor(ice$bdi_cat,levels=c("minima_depresion","depresion_leve","depresion_moderada","depresion_grave"))
-ice$bai_cat <- factor(ice$bai_cat,levels=c("MUY_BAJA","MODERADA","SEVERA"))
+ice[, `:=`(
+  spaq_seasonal_pattern = factor(spaq_seasonal_pattern,
+                                 levels = 0:3,
+                                 labels = c("Ausencia","Patrón invierno","Patrón Verano","Ambos")),
+  spaq_ssi = factor(spaq_ssi,
+                    levels = 0:3,
+                    labels = c("No aplica","Puntaje promedio","Winter blues","SAD")),
+  spaq_severity = factor(spaq_severity,
+                         levels = 0:5,
+                         labels = c("No es problema","Leve","Moderado","Importante","Severo","Grave")),
+  bdi_cat = factor(bdi_cat,
+                   levels = c("minima_depresion","depresion_leve","depresion_moderada","depresion_grave"),
+                   labels = c("Minima Depresión","Depresión Leve","Depresión Moderada","Depresión Grave")),
+  bai_cat = factor(bai_cat,
+                   levels = c("MUY_BAJA","MODERADA","SEVERA"),
+                   labels = c("Muy baja","Moderada","Severa")),
+  sexo = factor(sexo,
+                levels = c("male", "female"))
+)]
 
-levels(ice$spaq_seasonal_pattern) <- c("Ausencia","Patrón invierno","Patrón Verano","Ambos")
-levels(ice$spaq_ssi) <- c("No aplica","Puntaje promedio","Winter blues","SAD")
-levels(ice$spaq_severity) <- c("No es problema","Leve","Moderado","Importante","Severo","Grave")
-levels(ice$bdi_cat) <- c("Minima Depresión","Depresión Leve","Depresión Moderada","Depresión Grave")
-levels(ice$bai_cat) <- c("Muy baja","Moderada","Severa")
+## Creating variables
+ice[, spaq_sleep_hours_mean := mean(c(spaq_sleep_hours_winter, spaq_sleep_hours_spring,
+                                      spaq_sleep_hours_summer, spaq_sleep_hours_fall),
+                                    na.rm = TRUE),
+    by = id_personal]
+
+ice[, bp_systolic_delta_00 := (bp_systolic_3 - bp_systolic)]
+ice[, bp_systolic_delta_10 := (bp_systolic_4 - bp_systolic)]
+ice[, bp_diastolic_delta_00 := (bp_diastolic_3 - bp_diastolic)]
+ice[, bp_diastolic_delta_10 := (bp_diastolic_4 - bp_diastolic)]
+
+## Setting variables to numeric
+ice[, t_post_izquierdo := as.numeric(t_post_izquierdo)]
+
+ice[, t_delta10_izquierdo := t_post_izquierdo_2 - t_pre_izquierdo]
+ice[, t_delta00_izquierdo := t_post_izquierdo - t_pre_izquierdo]
+ice[, t_delta10_derecho := t_post_derecho_2 - t_pre_derecho]
+ice[, t_delta00_derecho := t_post_derecho - t_pre_derecho]
+
+
 
 # Export data -------------------------------------------------------------
 
