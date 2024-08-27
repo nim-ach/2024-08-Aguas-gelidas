@@ -9,13 +9,12 @@ execute:
   warning: false
   error: false
 lang: es
+lightbox: true
 toc: true
 toc-title: "Índice"
 number-sections: true
-fig-responsive: true
-resources: 
-  - models
-  - index.qmd
+mermaid: 
+  theme: neutral
 ---
 
 # Análisis Estadístico
@@ -26,7 +25,42 @@ Para los estadísticos descriptivos se reportaron la media y la desviación est�
 
 ## Marco de análisis
 
-Utilizamos un marco bayesiano para explorar las complejas interacciones entre factores clave asociados con el dolor no oncológico. Los modelos bayesianos son preferibles a los métodos frecuentistas tradicionales porque pueden cuantificar la incertidumbre y estimar los parámetros del modelo de forma más exhaustiva. Además, la inferencia bayesiana permite la inclusión de conocimientos previos sobre los parámetros del modelo, lo que posibilita la integración de hallazgos existentes e investigaciones anteriores. El marco bayesiano proporciona distribuciones posteriores que permiten una interpretación probabilística de las estimaciones de los parámetros con intervalos creíbles que reflejan la incertidumbre de los mismos.
+Utilizamos un marco bayesiano para explorar las complejas interacciones entre factores clave asociados con la modulación autonómica cardíaca en nadadores de aguas gélidas. Los modelos bayesianos son preferibles a los métodos frecuentistas tradicionales porque pueden cuantificar la incertidumbre y estimar los parámetros del modelo de forma más exhaustiva. Además, la inferencia bayesiana permite la inclusión de conocimientos previos sobre los parámetros del modelo, lo que posibilita la integración de hallazgos existentes e investigaciones anteriores. El marco bayesiano proporciona distribuciones posteriores que permiten una interpretación probabilística de las estimaciones de los parámetros con intervalos creíbles que reflejan la incertidumbre de los mismos.
+
+Este análisis parte de la intención de comprobar la relación entre variables latentes representadas por el conjunto de variables medidas. Esta relación, y en consecuencia la intención del análisis, planteamos que la composición corporal y los factores psicológicos modulan la actividad autonómica cardiaca, que a su vez modula el control hemodinámico en nadadores de aguas gélidas. Esta relación se ilustra mejor de la siguiente manera:
+
+
+```{mermaid}
+%%| layout-align: center
+graph TB
+  subgraph p0 ["Psicológicos"]
+  A1[Ansiedad]
+  A2[Depresión]
+  end
+  
+  subgraph p1 ["Composición corporal"]
+  B1[Grasa corporal]
+  B2[Masa muscular]
+  B3[Peso corporal]
+  B4[Grasa visceral]
+  end
+  
+  subgraph p2 ["Control autonómico"]
+  C1[Dominios de frecuencia]
+  C2[Dominios de tiempo]
+  C3[Índices autonómicos]
+  end
+  
+  subgraph p3 ["Hemodinámico"]
+  D1[Presión sistólica]
+  D2[Presión diastólica]
+  end
+  
+  p0 --> p2
+  p1 --> p2
+  p2 --> p3
+```
+
 
 Para evaluar el efecto de la composición corporal, así como de la sintomatología ansiosa y depresiva, sobre la modulación autonómica cardíaca, realizamos un modelo lineal generalizado multivariable bayesiano, lo que nos permitió evaluar la relación existente con los ejes de variabilidad de la frecuencia cardíaca (VFC). El mismo abordaje fue utilizado para evaluar el efecto de los diferentes índices de VFC sobre parámetros de control hemodinámico. Este modelo bayesiano multivariable fue parametrizado según la @eq-first-model-1.
 

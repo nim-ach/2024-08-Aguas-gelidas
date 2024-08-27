@@ -53,6 +53,13 @@ div.csl-indent {
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="index_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="index_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<meta name="mermaid-theme" content="neutral">
+<script src="index_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="index_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="index_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -125,7 +132,46 @@ window.Quarto = {
 </section>
 <section id="marco-de-análisis" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="marco-de-análisis"><span class="header-section-number">1.2</span> Marco de análisis</h2>
-<p>Utilizamos un marco bayesiano para explorar las complejas interacciones entre factores clave asociados con el dolor no oncológico. Los modelos bayesianos son preferibles a los métodos frecuentistas tradicionales porque pueden cuantificar la incertidumbre y estimar los parámetros del modelo de forma más exhaustiva. Además, la inferencia bayesiana permite la inclusión de conocimientos previos sobre los parámetros del modelo, lo que posibilita la integración de hallazgos existentes e investigaciones anteriores. El marco bayesiano proporciona distribuciones posteriores que permiten una interpretación probabilística de las estimaciones de los parámetros con intervalos creíbles que reflejan la incertidumbre de los mismos.</p>
+<p>Utilizamos un marco bayesiano para explorar las complejas interacciones entre factores clave asociados con la modulación autonómica cardíaca en nadadores de aguas gélidas. Los modelos bayesianos son preferibles a los métodos frecuentistas tradicionales porque pueden cuantificar la incertidumbre y estimar los parámetros del modelo de forma más exhaustiva. Además, la inferencia bayesiana permite la inclusión de conocimientos previos sobre los parámetros del modelo, lo que posibilita la integración de hallazgos existentes e investigaciones anteriores. El marco bayesiano proporciona distribuciones posteriores que permiten una interpretación probabilística de las estimaciones de los parámetros con intervalos creíbles que reflejan la incertidumbre de los mismos.</p>
+<p>Este análisis parte de la intención de comprobar la relación entre variables latentes representadas por el conjunto de variables medidas. Esta relación, y en consecuencia la intención del análisis, planteamos que la composición corporal y los factores psicológicos modulan la actividad autonómica cardiaca, que a su vez modula el control hemodinámico en nadadores de aguas gélidas. Esta relación se ilustra mejor de la siguiente manera:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TB
+  subgraph p0 ["Psicológicos"]
+  A1[Ansiedad]
+  A2[Depresión]
+  end
+  
+  subgraph p1 ["Composición corporal"]
+  B1[Grasa corporal]
+  B2[Masa muscular]
+  B3[Peso corporal]
+  B4[Grasa visceral]
+  end
+  
+  subgraph p2 ["Control autonómico"]
+  C1[Dominios de frecuencia]
+  C2[Dominios de tiempo]
+  C3[Índices autonómicos]
+  end
+  
+  subgraph p3 ["Hemodinámico"]
+  D1[Presión sistólica]
+  D2[Presión diastólica]
+  end
+  
+  p0 --&gt; p2
+  p1 --&gt; p2
+  p2 --&gt; p3
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <p>Para evaluar el efecto de la composición corporal, así como de la sintomatología ansiosa y depresiva, sobre la modulación autonómica cardíaca, realizamos un modelo lineal generalizado multivariable bayesiano, lo que nos permitió evaluar la relación existente con los ejes de variabilidad de la frecuencia cardíaca (VFC). El mismo abordaje fue utilizado para evaluar el efecto de los diferentes índices de VFC sobre parámetros de control hemodinámico. Este modelo bayesiano multivariable fue parametrizado según la <a href="#eq-first-model-1" class="quarto-xref">Ecuación&nbsp;1</a>.</p>
 <p><span id="eq-first-model-1"><span class="math display">\[
 \begin{aligned}
@@ -158,23 +204,23 @@ window.Quarto = {
 <p>La muestra evalauda consistió de 18 individuos (8 hombres, 10 mujeres). Las características de la muestra evaluada pueden observarse en la tabla 1.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="solvnrdxio" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#solvnrdxio table {
+<div id="wgkaawvajg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wgkaawvajg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#solvnrdxio thead, #solvnrdxio tbody, #solvnrdxio tfoot, #solvnrdxio tr, #solvnrdxio td, #solvnrdxio th {
+#wgkaawvajg thead, #wgkaawvajg tbody, #wgkaawvajg tfoot, #wgkaawvajg tr, #wgkaawvajg td, #wgkaawvajg th {
   border-style: none;
 }
 
-#solvnrdxio p {
+#wgkaawvajg p {
   margin: 0;
   padding: 0;
 }
 
-#solvnrdxio .gt_table {
+#wgkaawvajg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -200,12 +246,12 @@ window.Quarto = {
   border-left-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_caption {
+#wgkaawvajg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#solvnrdxio .gt_title {
+#wgkaawvajg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -217,7 +263,7 @@ window.Quarto = {
   border-bottom-width: 0;
 }
 
-#solvnrdxio .gt_subtitle {
+#wgkaawvajg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -229,7 +275,7 @@ window.Quarto = {
   border-top-width: 0;
 }
 
-#solvnrdxio .gt_heading {
+#wgkaawvajg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -241,13 +287,13 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_bottom_border {
+#wgkaawvajg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_col_headings {
+#wgkaawvajg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -262,7 +308,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_col_heading {
+#wgkaawvajg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -282,7 +328,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#solvnrdxio .gt_column_spanner_outer {
+#wgkaawvajg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -294,15 +340,15 @@ window.Quarto = {
   padding-right: 4px;
 }
 
-#solvnrdxio .gt_column_spanner_outer:first-child {
+#wgkaawvajg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#solvnrdxio .gt_column_spanner_outer:last-child {
+#wgkaawvajg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#solvnrdxio .gt_column_spanner {
+#wgkaawvajg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -314,11 +360,11 @@ window.Quarto = {
   width: 100%;
 }
 
-#solvnrdxio .gt_spanner_row {
+#wgkaawvajg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#solvnrdxio .gt_group_heading {
+#wgkaawvajg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -344,7 +390,7 @@ window.Quarto = {
   text-align: left;
 }
 
-#solvnrdxio .gt_empty_group_heading {
+#wgkaawvajg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -359,15 +405,15 @@ window.Quarto = {
   vertical-align: middle;
 }
 
-#solvnrdxio .gt_from_md > :first-child {
+#wgkaawvajg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#solvnrdxio .gt_from_md > :last-child {
+#wgkaawvajg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#solvnrdxio .gt_row {
+#wgkaawvajg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -386,7 +432,7 @@ window.Quarto = {
   overflow-x: hidden;
 }
 
-#solvnrdxio .gt_stub {
+#wgkaawvajg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -399,7 +445,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#solvnrdxio .gt_stub_row_group {
+#wgkaawvajg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -413,15 +459,15 @@ window.Quarto = {
   vertical-align: top;
 }
 
-#solvnrdxio .gt_row_group_first td {
+#wgkaawvajg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#solvnrdxio .gt_row_group_first th {
+#wgkaawvajg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#solvnrdxio .gt_summary_row {
+#wgkaawvajg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -431,16 +477,16 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#solvnrdxio .gt_first_summary_row {
+#wgkaawvajg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_first_summary_row.thick {
+#wgkaawvajg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#solvnrdxio .gt_last_summary_row {
+#wgkaawvajg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -450,7 +496,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_grand_summary_row {
+#wgkaawvajg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -460,7 +506,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#solvnrdxio .gt_first_grand_summary_row {
+#wgkaawvajg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -470,7 +516,7 @@ window.Quarto = {
   border-top-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_last_grand_summary_row_top {
+#wgkaawvajg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -480,11 +526,11 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_striped {
+#wgkaawvajg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#solvnrdxio .gt_table_body {
+#wgkaawvajg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -493,7 +539,7 @@ window.Quarto = {
   border-bottom-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_footnotes {
+#wgkaawvajg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -507,7 +553,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_footnote {
+#wgkaawvajg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -516,7 +562,7 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#solvnrdxio .gt_sourcenotes {
+#wgkaawvajg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -530,7 +576,7 @@ window.Quarto = {
   border-right-color: #D3D3D3;
 }
 
-#solvnrdxio .gt_sourcenote {
+#wgkaawvajg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -538,72 +584,72 @@ window.Quarto = {
   padding-right: 5px;
 }
 
-#solvnrdxio .gt_left {
+#wgkaawvajg .gt_left {
   text-align: left;
 }
 
-#solvnrdxio .gt_center {
+#wgkaawvajg .gt_center {
   text-align: center;
 }
 
-#solvnrdxio .gt_right {
+#wgkaawvajg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#solvnrdxio .gt_font_normal {
+#wgkaawvajg .gt_font_normal {
   font-weight: normal;
 }
 
-#solvnrdxio .gt_font_bold {
+#wgkaawvajg .gt_font_bold {
   font-weight: bold;
 }
 
-#solvnrdxio .gt_font_italic {
+#wgkaawvajg .gt_font_italic {
   font-style: italic;
 }
 
-#solvnrdxio .gt_super {
+#wgkaawvajg .gt_super {
   font-size: 65%;
 }
 
-#solvnrdxio .gt_footnote_marks {
+#wgkaawvajg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#solvnrdxio .gt_asterisk {
+#wgkaawvajg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#solvnrdxio .gt_indent_1 {
+#wgkaawvajg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#solvnrdxio .gt_indent_2 {
+#wgkaawvajg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#solvnrdxio .gt_indent_3 {
+#wgkaawvajg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#solvnrdxio .gt_indent_4 {
+#wgkaawvajg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#solvnrdxio .gt_indent_5 {
+#wgkaawvajg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#solvnrdxio .katex-display {
+#wgkaawvajg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#solvnrdxio div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wgkaawvajg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -950,7 +996,7 @@ N = 10</p>
 <section id="efecto-de-la-composición-corporal-sobre-el-control-autonómico" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="efecto-de-la-composición-corporal-sobre-el-control-autonómico"><span class="header-section-number">2.2</span> Efecto de la composición corporal sobre el control autonómico</h2>
 <div class="screen-inset-left">
-<p><img src="fig1.svg" class="img-fluid" style="width:100.0%"></p>
+<p><a href="fig1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="fig1.svg" class="img-fluid" style="width:100.0%"></a></p>
 </div>
 <p><strong>Figura 1</strong>. Efectos lineales estandarizados de los parámetros de composición corporal sobre la modulación autonómica cardíaca, obtenido de los modelos lineales generalizados bayesianos multivariados. El área oscurecida representa la región de equivalencia práctica (ROPE).</p>
 <p>Al evaluar el efecto de la composición corporal, observamos que el peso corporal generó un efecto negativo sobre parámetros autonómicos cardíacos, específicamente RMSSD (<span class="math inline">\(\beta\)</span> = -0.48, CI<sub>95%</sub>[-0.86, -0.07], pd = 0.99, ps = 0.97, ROPE = 0.01, BF<sub>10</sub> = 1.088), SDNN (<span class="math inline">\(\beta\)</span> = -0.53, CI<sub>95%</sub>[-0.93, -0.12], pd = 0.99, ps = 0.98, ROPE = 0, BF<sub>10</sub> = 1.703), LF (<span class="math inline">\(\beta\)</span> = -0.5, CI<sub>95%</sub>[-0.97, -0.01], pd = 0.98, ps = 0.95, ROPE = 0.02, BF<sub>10</sub> = 0.784). Pese a lo anterior, observamos que el peso corporal se asoció positivamente a un mayor índice de actividad simpática (<span class="math inline">\(\beta\)</span> = 0.6, CI<sub>95%</sub>[0.22, 0.97], pd = 1, ps = 0.99, ROPE = 0, BF<sub>10</sub> = 7.062), y con mayor evidencia a favor del índice de estrés autonómico (<span class="math inline">\(\beta\)</span> = 0.69, CI<sub>95%</sub>[0.33, 1.05], pd = 1, ps = 1, ROPE = 0, BF<sub>10</sub> = 29.344).</p>
@@ -960,7 +1006,7 @@ N = 10</p>
 <section id="efecto-de-la-ansiedad-y-depresión-sobre-el-control-autonómico" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="efecto-de-la-ansiedad-y-depresión-sobre-el-control-autonómico"><span class="header-section-number">2.3</span> Efecto de la ansiedad y depresión sobre el control autonómico</h2>
 <div class="screen-inset-left">
-<p><img src="fig2.svg" class="img-fluid" style="width:100.0%"></p>
+<p><a href="fig2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="fig2.svg" class="img-fluid" style="width:100.0%"></a></p>
 </div>
 <p><strong>Figura 2</strong>. Efectos lineales estandarizados de los parámetros de ansiedad y depresión sobre la modulación autonómica cardíaca, obtenido de los modelos lineales generalizados bayesianos multivariados. El área oscurecida representa la región de equivalencia práctica (ROPE).</p>
 <p>La ansiedad, representada como el puntaje total del instrumento, se asoció inversamente con la actividad de marcardores autonómicos cardíacos como RMSSD (<span class="math inline">\(\beta\)</span> = -0.64, CI<sub>95%</sub>[-1.17, -0.08], pd = 0.99, ps = 0.97, ROPE = 0, BF<sub>10</sub> = 1.336), SDNN (<span class="math inline">\(\beta\)</span> = -0.73, CI<sub>95%</sub>[-1.29, -0.19], pd = 1, ps = 0.99, ROPE = 0, BF<sub>10</sub> = 2.976), índices autonómicos como PNS (<span class="math inline">\(\beta\)</span> = -0.73, CI<sub>95%</sub>[-1.34, -0.12], pd = 0.99, ps = 0.98, ROPE = 0, BF<sub>10</sub> = 1.932) y de manera directa con mucha más evidencia a favor de índices de actividad simpática (<span class="math inline">\(\beta\)</span> = 1.07, CI<sub>95%</sub>[0.64, 1.48], pd = 1, ps = 1, ROPE = 0, BF<sub>10</sub> = 1135.605) y de estrés autonómico (<span class="math inline">\(\beta\)</span> = 1.1, CI<sub>95%</sub>[0.68, 1.52], pd = 1, ps = 1, ROPE = 0, BF<sub>10</sub> = 317.26).</p>
@@ -969,7 +1015,7 @@ N = 10</p>
 <section id="influencia-del-control-autonómico-sobre-el-control-hemodinámico" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="influencia-del-control-autonómico-sobre-el-control-hemodinámico"><span class="header-section-number">2.4</span> Influencia del control autonómico sobre el control hemodinámico</h2>
 <div class="screen-inset-left">
-<p><img src="fig3.svg" class="img-fluid" style="width:100.0%"></p>
+<p><a href="fig3.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="fig3.svg" class="img-fluid" style="width:100.0%"></a></p>
 </div>
 <p><strong>Figura 3</strong>. Efectos lineales estandarizados de los parámetros de VFC sobre el control hemodinámico, obtenido de los modelos lineales generalizados bayesianos multivariados. El área oscurecida representa la región de equivalencia práctica (ROPE).</p>
 <p>Finalmente y en relación a los índices de actividad autonómica cardíaca y el control hemodinámico, observamos que en relación a la presión sistólica existe un efecto globalmente negativo de los índices de tiempo como RMSSD (<span class="math inline">\(\beta\)</span> = -0.37, CI<sub>95%</sub>[-1, 0.25], pd = 0.89, ps = 0.82, ROPE = 0.12, BF<sub>10</sub> = 0.247) y SDNN (<span class="math inline">\(\beta\)</span> = -0.38, CI<sub>95%</sub>[-0.99, 0.22], pd = 0.9, ps = 0.83, ROPE = 0.12, BF<sub>10</sub> = 0.237), así como de los ejes de frecuencia como HF (<span class="math inline">\(\beta\)</span> = -0.33, CI<sub>95%</sub>[-0.95, 0.27], pd = 0.88, ps = 0.78, ROPE = 0.15, BF<sub>10</sub> = 0.187) y LF (<span class="math inline">\(\beta\)</span> = -0.27, CI<sub>95%</sub>[-0.9, 0.35], pd = 0.81, ps = 0.71, ROPE = 0.18, BF<sub>10</sub> = 0.149). Por otro lado se observa una tendencia a que un mayor tono simpático se estaría asociando a una mayor presión sistólica, al menos por parte del índice de SNS (<span class="math inline">\(\beta\)</span> = 0.26, CI<sub>95%</sub>[-0.38, 0.9], pd = 0.81, ps = 0.71, ROPE = 0.19, BF<sub>10</sub> = 0.151) y el índice de estrés autonómico (<span class="math inline">\(\beta\)</span> = 0.41, CI<sub>95%</sub>[-0.18, 1.01], pd = 0.92, ps = 0.86, ROPE = 0.1, BF<sub>10</sub> = 0.285). Sin embargo, nuestros datos proporcionan mayor apoyo a favor de la hipótesis nula, comparado con la probabilidad a posterior del valor nulo después de incorporar los datos.</p>
@@ -1420,6 +1466,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
