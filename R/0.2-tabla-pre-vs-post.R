@@ -19,10 +19,10 @@ vars <- list(
   pre = c("bp_systolic_2", "bp_diastolic_2",
           "pre_mean_rr_2", "pre_rmssd_2", "pre_sdnn_2", "pre_hf_2", "pre_lf", "pre_vlf_2",
           "pre_pns_2", "pre_sns_2", "pre_stress_index_2", "t_pre_izquierdo", "t_pre_derecho"),
-  post00 = c("bp_systolic_2", "bp_diastolic_2",
+  post00 = c("bp_systolic_3", "bp_diastolic_3",
           "post_mean_rr_3", "post_rmssd_3", "post_sdnn_3", "post_hf_3", "post_lf_2", "post_vlf_3",
           "post_pns_3", "post_sns_3", "post_stress_index_3", "t_post_izquierdo", "t_post_derecho"),
-  post10 = c("bp_systolic_2", "bp_diastolic_2",
+  post10 = c("bp_systolic_4", "bp_diastolic_4",
              "post_mean_rr_4", "post_rmssd_4", "post_sdnn_4", "post_hf_4", "post_lf_3", "post_vlf_4",
              "post_pns_4", "post_sns_4", "post_stress_index_4", "t_post_izquierdo_2", "t_post_derecho_2")
 )

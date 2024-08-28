@@ -63,6 +63,9 @@ graph TB
   E4["Post-inmersión (10')"]
   end
   
+  E1 --> E2
+  E2 --> E3
+  E3 --> E4
   p0 --> p2
   p1 --> p2
   p2 --> p3
