@@ -56,9 +56,17 @@ graph TB
   D2[Presión diastólica]
   end
   
+  subgraph p4 ["Inmersión en agua gélidas"]
+  E1["Basal"]
+  E2["Pre-inmersión"]
+  E3["Post-inmersión (0')"]
+  E4["Post-inmersión (10')"]
+  end
+  
   p0 --> p2
   p1 --> p2
   p2 --> p3
+  p4 --> p2 & p3 & p5("Temperatura timpánica")
 ```
 
 
@@ -121,6 +129,13 @@ La muestra evalauda consistió de 18 individuos (8 hombres, 10 mujeres). Las car
 readRDS(file = "tbl_1.RDS")
 ```
 **Tabla 1**. Características sociodemográficas, parámetros psicológicos, composición corporal y cardiovasculares de los participantes del estudio. Además de las características globales de la muestra, se presentan las diferencias medias estandarizadas entre grupos de sexo.
+
+Observamos variaciones de los parámetros de presión arterial, así como de los ejes de VFC asociados al efecto de la inmersión sobre la regulación autonómica cardíaca. Estas variaciones temporales pueden observarse en la tabla 2.
+
+```{r}
+readRDS(file = "tbl_2.RDS")
+```
+**Tabla 2**. Variaciones temporales de los parámetros de regulación hemodinámica, autonómica cardíaca, así como de temperatura timpánica. Las comparaciones por pares de instancias evaluativas también se presentan.
 
 ## Efecto de la composición corporal sobre el control autonómico
 
