@@ -128,16 +128,22 @@ results <- readRDS(file = "models/results.RDS")
 
 La muestra evalauda consistió de 18 individuos (8 hombres, 10 mujeres). Las características de la muestra evaluada pueden observarse en la tabla 1.
 
+:::{.column-page-inset-left}
 ```{r}
 readRDS(file = "tbl_1.RDS")
 ```
+:::
+
 **Tabla 1**. Características sociodemográficas, parámetros psicológicos, composición corporal y cardiovasculares de los participantes del estudio. Además de las características globales de la muestra, se presentan las diferencias medias estandarizadas entre grupos de sexo.
 
 Observamos variaciones de los parámetros de presión arterial, así como de los ejes de VFC asociados al efecto de la inmersión sobre la regulación autonómica cardíaca. Estas variaciones temporales pueden observarse en la tabla 2.
 
+:::{.column-page-inset-left}
 ```{r}
 readRDS(file = "tbl_2.RDS")
 ```
+:::
+
 **Tabla 2**. Variaciones temporales de los parámetros de regulación hemodinámica, autonómica cardíaca, así como de temperatura timpánica. Las comparaciones por pares de instancias evaluativas también se presentan.
 
 ## Efecto de la composición corporal sobre el control autonómico
